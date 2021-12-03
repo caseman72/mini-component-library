@@ -32,11 +32,15 @@ const IconInput = ({
   // Things I didn't get
   //  * label
   //  * placeholder styles
+  //  * outline ... i hacked that later
 
   const Wrapper = styled.label`
     display: block;
     width: fit-content;
     border-bottom: 1px solid black;
+    &:hover, &:focus {
+      box-shadow: 0 0 1px 0.5px ${COLORS.primary};
+    }
   `;
 
   const Input = styled.input`
