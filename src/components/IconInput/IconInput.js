@@ -30,9 +30,10 @@ const IconInput = ({
   const styles = STYLES[size] || STYLES.small;
 
   // Things I didn't get
-  //  * label
+  //  * label instead of div for clickable
   //  * placeholder styles
-  //  * outline ... i hacked that later
+  //  * icon infront of textbox which led to vvv
+  //  * outline of textbox ... i hacked that later
 
   const Wrapper = styled.label`
     display: block;
