@@ -13,7 +13,61 @@ const IconInput = ({
   size,
   placeholder,
 }) => {
-  return 'TODO';
+
+  const STYLES = {
+    small: {
+      '--iconSize': 16,
+      '--minWidth': `${Math.max(50, width - 5 - 16)}px`,
+      '--fontSize': `${16 / 16}rem`
+    },
+    large: {
+      '--iconSize': 18,
+      '--minWidth': `${Math.max(50, width - 5 - 18)}px`,
+      '--fontSize': `${18 / 16}rem`
+    }
+  };
+
+  const styles = STYLES[size] || STYLES.small;
+
+  // Things I didn't get
+  //  * label
+  //  * placeholder styles
+
+  const Wrapper = styled.label`
+    display: block;
+    width: fit-content;
+    border-bottom: 1px solid black;
+  `;
+
+  const Input = styled.input`
+    color: ${COLORS.gray700};
+    min-width: var(--minWidth);
+    font-size: var(--fontSize);
+    font-weight: 700;
+    outline: none;
+    border: none;
+    vertical-align: 3px;
+    &::placeholder {
+      font-weight: 400;
+      color: ${COLORS.gray500};
+    }
+    &:hover {
+      color: ${COLORS.black};
+    }
+  `;
+
+  const LeftIcon = styled(Icon)`
+    display: inline-block;
+    margin-right: 5px
+  `;
+
+  return (
+    <Wrapper>
+      <VisuallyHidden>{label}</VisuallyHidden>
+      <LeftIcon id={icon} size={styles["--iconSize"]}/>
+      <Input style={styles} type="text" placeholder={placeholder} />
+    </Wrapper>
+  )
 };
 
 export default IconInput;
